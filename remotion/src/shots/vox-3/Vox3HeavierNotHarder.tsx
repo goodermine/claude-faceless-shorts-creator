@@ -26,7 +26,7 @@ import { VO } from './vo.gen';
 // =============================================================================
 export const compositionConfig = {
   id: 'Vox3HeavierNotHarder',
-  durationInSeconds: 35.6,
+  durationInSeconds: 40.4,
   fps: 30,
   width: 1080,
   height: 1920,
@@ -60,13 +60,17 @@ const T = {
   arms: f(28.04), //         "The arms do not punch alone"
   person: f(30.55), //       "The person punches"
   punches: f(30.9),
-  loopHeavier: f(32.44), //  "Heavier."
-  loopNot: f(33.56), //      "Not harder."
+  cta: f(32.7), //           "It's all in my book" — CTA spliced after the payoff (splice_cta.py)
+  zhan: f(33.81), //         "Zhan Zhuang: Internal Power" — the name to search for
+  amazon: f(35.74), //       "On Amazon now"
+  loopHeavier: f(37.18), //  "Heavier."
+  loopNot: f(38.3), //       "Not harder."
 } as const;
 
 // Camera — push on the hook, frame the figure + meters for the ladder (higher, so his
-// feet stay clear of the caption band), widen for the print, push for the payoff, and
-// land on the frame-0 framing for a seamless loop.
+// feet stay clear of the caption band), widen for the print, push for the payoff, move in
+// on the book for the CTA (his lit fist still in frame, pointing at it), then land on the
+// frame-0 framing on "Heavier." for a seamless loop.
 const CAM = [
   { f: 0, x: 540, y: 960, z: 1.0 },
   { f: 140, x: 540, y: 955, z: 1.03 },
@@ -75,9 +79,11 @@ const CAM = [
   { f: 520, x: 540, y: 950, z: 1.0 },
   { f: 780, x: 540, y: 950, z: 1.0 },
   { f: 815, x: 520, y: 980, z: 1.07 },
-  { f: 955, x: 520, y: 980, z: 1.07 },
-  { f: 1000, x: 540, y: 960, z: 1.0 },
-  { f: 1067, x: 540, y: 960, z: 1.0 },
+  { f: 960, x: 520, y: 980, z: 1.07 },
+  { f: 1000, x: 720, y: 745, z: 1.45 },
+  { f: 1115, x: 720, y: 745, z: 1.45 },
+  { f: 1145, x: 540, y: 960, z: 1.0 },
+  { f: 1211, x: 540, y: 960, z: 1.0 },
 ];
 
 // =============================================================================
@@ -310,6 +316,9 @@ const SFX: { at: number; id: string; v: number }[] = [
   { at: T.heavier + 3, id: 'stamp-hit', v: 0.44 },
   { at: T.punches, id: 'impact-deep-soft', v: 0.44 },
   { at: T.punches, id: 'warm-shimmer', v: 0.26 },
+  { at: 962, id: 'whoosh-soft', v: 0.22 }, //         camera moves in on the book
+  { at: T.cta + 2, id: 'page-flip', v: 0.3 }, //      cover lands
+  { at: T.amazon, id: 'pop-reveal', v: 0.26 }, //     "On Amazon now" chip
   { at: T.loopHeavier, id: 'whoosh-soft', v: 0.26 },
 ];
 
@@ -389,19 +398,41 @@ const Vox3HeavierNotHarder: React.FC = () => {
           </SceneFade>
         </Sequence>
 
-        {/* ---- LOOP (32.4–35.6s): back to the frame-0 composition ---- */}
+        {/* ---- CTA (32.7–36.4s): the book. The cover returns here and stays to the last
+             frame (where it matches frame 0); the Amazon chip leaves before the loop lands. ---- */}
+        <Sequence from={T.cta - 6} layout="none">
+          <Cover at={0} enter="place" />
+        </Sequence>
+        <Sequence from={T.cta} durationInFrames={LOOP + 16 - T.cta} layout="none">
+          {/* the title, big, as he says it — gone before "Heavier," returns to the same area */}
+          <SceneFade out={LOOP - T.cta} dur={12}>
+            <SerifStatement
+              x={720}
+              y={359}
+              w={640}
+              at={T.zhan - T.cta}
+              size={52}
+              hlColor={GOLD.light}
+              words={[{ t: 'Zhan Zhuang –' }, { t: 'Internal Power', hl: true }]}
+            />
+          </SceneFade>
+          <SceneFade out={LOOP + 16 - T.cta} dur={14}>
+            <LabelChip x={800} y={524} at={T.amazon - T.cta} text="On Amazon now" kicker="Get the book" accent={GOLD.mid} kickerColor={GOLD.ink} size={22} rotate={-1.5} center z={5} />
+          </SceneFade>
+        </Sequence>
+
+        {/* ---- LOOP (37.2–40.4s): back to the frame-0 composition ---- */}
         <Sequence from={LOOP} layout="none">
           <Credit at={10} />
           <SerifStatement x={540} y={295} w={900} at={0} size={88} hlColor={GOLD.light} words={TITLE_1} />
           <SerifStatement x={540} y={395} w={900} at={T.loopNot - LOOP} size={88} words={TITLE_2} />
-          <Cover at={4} enter="place" />
         </Sequence>
       </CollageBoard>
 
       <Grain opacity={0.05} />
       <Captions lines={CAPTION_VO} y={1320} size={50} maxWords={4} plate accent={GOLD.light} />
 
-      <Audio src={staticFile('projects/vox-3-zhan-zhuang/narration.mp3')} />
+      <Audio src={staticFile('projects/vox-3-zhan-zhuang/narration-cta.m4a')} />
       {SFX.map((s, i) => (
         <Sequence key={i} from={s.at} layout="none">
           <Audio src={sfx(s.id)} volume={s.v} />

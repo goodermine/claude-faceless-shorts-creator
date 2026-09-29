@@ -62,6 +62,12 @@ IDEAS.md          the TSX-shorts idea bank + niche ranking
 - **Master every final render:** `python tools/master_audio.py remotion/out/<Id>.mp4` → `-master.mp4`
   at ~−15.5 LUFS with a peak limiter (video stream copied). Raw renders sit near −21 LUFS
   (the narration's own level). Keep SFX under the voice *before* mastering — measure, don't guess.
+- **Book shorts carry a purchase CTA (Aaron's call).** In the author's voice, *after the payoff and
+  before the loop line* ("It's all in my book, <Title>. On Amazon now."), with the cover + title on
+  screen — then the loop line still ends the video so last frame == frame 0. This is the one
+  sanctioned exception to "no CTA outros"; engagement-bait endings ("comment below…") stay out.
+  Splice a separately generated CTA into approved narration (see `vox-3-zhan-zhuang/splice_cta.py`)
+  rather than regenerating the whole take.
 - **Generating without `.env` keys:** with an ElevenLabs account connected to the session, images
   (`creative_generate_image`), narration in the author's cloned voice (`creative_generate_speech`)
   and transcripts are generated in-session. The connector returns no word timestamps, so time words

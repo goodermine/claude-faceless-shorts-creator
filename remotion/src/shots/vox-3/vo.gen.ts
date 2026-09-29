@@ -48,7 +48,7 @@ export const VO: VoLine[] = [
       {
         "w": "harder.",
         "start": 1.96,
-        "end": 2.3
+        "end": 2.28
       }
     ]
   },
@@ -96,12 +96,12 @@ export const VO: VoLine[] = [
     "words": [
       {
         "w": "Tap",
-        "start": 5.14,
-        "end": 5.18
+        "start": 5.16,
+        "end": 5.2
       },
       {
         "w": "the",
-        "start": 5.18,
+        "start": 5.2,
         "end": 5.38
       },
       {
@@ -117,11 +117,11 @@ export const VO: VoLine[] = [
       {
         "w": "just",
         "start": 5.82,
-        "end": 6.0
+        "end": 6.02
       },
       {
         "w": "the",
-        "start": 6.0,
+        "start": 6.02,
         "end": 6.18
       },
       {
@@ -208,7 +208,7 @@ export const VO: VoLine[] = [
       {
         "w": "shoulder.",
         "start": 11.09,
-        "end": 11.3
+        "end": 11.28
       }
     ]
   },
@@ -225,7 +225,7 @@ export const VO: VoLine[] = [
       {
         "w": "trunk.",
         "start": 12.27,
-        "end": 12.48
+        "end": 12.46
       }
     ]
   },
@@ -242,7 +242,7 @@ export const VO: VoLine[] = [
       {
         "w": "centre.",
         "start": 13.48,
-        "end": 13.72
+        "end": 13.66
       }
     ]
   },
@@ -253,7 +253,7 @@ export const VO: VoLine[] = [
     "words": [
       {
         "w": "Then",
-        "start": 14.63,
+        "start": 14.66,
         "end": 14.72
       },
       {
@@ -264,11 +264,11 @@ export const VO: VoLine[] = [
       {
         "w": "the",
         "start": 14.96,
-        "end": 15.12
+        "end": 15.1
       },
       {
         "w": "legs",
-        "start": 15.12,
+        "start": 15.1,
         "end": 15.4
       },
       {
@@ -296,16 +296,16 @@ export const VO: VoLine[] = [
       {
         "w": "To",
         "start": 17.06,
-        "end": 17.12
+        "end": 17.14
       },
       {
         "w": "you,",
-        "start": 17.12,
+        "start": 17.14,
         "end": 17.32
       },
       {
         "w": "almost",
-        "start": 17.98,
+        "start": 18.0,
         "end": 18.28
       },
       {
@@ -316,7 +316,7 @@ export const VO: VoLine[] = [
       {
         "w": "changes.",
         "start": 18.74,
-        "end": 19.0
+        "end": 18.98
       }
     ]
   },
@@ -358,7 +358,7 @@ export const VO: VoLine[] = [
       {
         "w": "pad,",
         "start": 21.08,
-        "end": 21.36
+        "end": 21.38
       }
     ]
   },
@@ -380,11 +380,11 @@ export const VO: VoLine[] = [
       {
         "w": "getting",
         "start": 22.06,
-        "end": 22.3
+        "end": 22.32
       },
       {
         "w": "heavier",
-        "start": 22.3,
+        "start": 22.32,
         "end": 22.7
       }
     ]
@@ -427,11 +427,11 @@ export const VO: VoLine[] = [
       {
         "w": "hand",
         "start": 24.62,
-        "end": 24.9
+        "end": 24.88
       },
       {
         "w": "at",
-        "start": 24.9,
+        "start": 24.88,
         "end": 25.06
       },
       {
@@ -454,11 +454,11 @@ export const VO: VoLine[] = [
       {
         "w": "legs",
         "start": 26.26,
-        "end": 26.44
+        "end": 26.46
       },
       {
         "w": "do",
-        "start": 26.44,
+        "start": 26.46,
         "end": 26.68
       },
       {
@@ -476,7 +476,7 @@ export const VO: VoLine[] = [
   {
     "text": "The arms do not punch alone, either.",
     "start": 28.0,
-    "end": 29.77,
+    "end": 29.76,
     "words": [
       {
         "w": "The",
@@ -511,14 +511,14 @@ export const VO: VoLine[] = [
       {
         "w": "either.",
         "start": 29.14,
-        "end": 29.58
+        "end": 29.68
       }
     ]
   },
   {
     "text": "The person punches.",
     "start": 30.55,
-    "end": 31.77,
+    "end": 31.76,
     "words": [
       {
         "w": "The",
@@ -533,36 +533,117 @@ export const VO: VoLine[] = [
       {
         "w": "punches.",
         "start": 30.9,
-        "end": 31.42
+        "end": 31.28
+      }
+    ]
+  },
+  {
+    "text": "It's all in my book,",
+    "start": 32.7,
+    "end": 33.54,
+    "words": [
+      {
+        "w": "It's",
+        "start": 32.7,
+        "end": 32.8
+      },
+      {
+        "w": "all",
+        "start": 32.8,
+        "end": 32.92
+      },
+      {
+        "w": "in",
+        "start": 32.92,
+        "end": 33.02
+      },
+      {
+        "w": "my",
+        "start": 33.02,
+        "end": 33.12
+      },
+      {
+        "w": "book,",
+        "start": 33.12,
+        "end": 33.36
+      }
+    ]
+  },
+  {
+    "text": "Zhan Zhuang: Internal Power.",
+    "start": 33.81,
+    "end": 35.36,
+    "words": [
+      {
+        "w": "Zhan",
+        "start": 33.81,
+        "end": 33.96
+      },
+      {
+        "w": "Zhuang:",
+        "start": 33.96,
+        "end": 34.32
+      },
+      {
+        "w": "Internal",
+        "start": 34.32,
+        "end": 34.74
+      },
+      {
+        "w": "Power.",
+        "start": 34.74,
+        "end": 35.16
+      }
+    ]
+  },
+  {
+    "text": "On Amazon now.",
+    "start": 35.69,
+    "end": 36.43,
+    "words": [
+      {
+        "w": "On",
+        "start": 35.69,
+        "end": 35.74
+      },
+      {
+        "w": "Amazon",
+        "start": 35.74,
+        "end": 35.94
+      },
+      {
+        "w": "now.",
+        "start": 35.94,
+        "end": 36.34
       }
     ]
   },
   {
     "text": "Heavier.",
-    "start": 32.44,
-    "end": 32.88,
+    "start": 37.18,
+    "end": 37.62,
     "words": [
       {
         "w": "Heavier.",
-        "start": 32.44,
-        "end": 32.7
+        "start": 37.2,
+        "end": 37.42
       }
     ]
   },
   {
     "text": "Not harder.",
-    "start": 33.56,
-    "end": 34.23,
+    "start": 38.3,
+    "end": 38.96,
     "words": [
       {
         "w": "Not",
-        "start": 33.56,
-        "end": 33.7
+        "start": 38.38,
+        "end": 38.42
       },
       {
         "w": "harder.",
-        "start": 33.7,
-        "end": 34.0
+        "start": 38.42,
+        "end": 38.72
       }
     ]
   }

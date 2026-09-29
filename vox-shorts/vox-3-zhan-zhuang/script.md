@@ -3,9 +3,11 @@
 Source: *Zhan Zhuang – Internal Power* (Aaron Ellis), **Chapter 36 — Heavier, Not Harder**
 (`bookshelf` repo, `manuscripts/zhan-zhuang-power/manuscript.txt`). Series: Zhan Zhuang & Martial Arts.
 
-Format: 1080×1920 @ 30fps, 35.6s (1068 frames). Vox layered collage on the `collage.tsx` kit.
+Format: 1080×1920 @ 30fps, 40.4s (1212 frames). Vox layered collage on the `collage.tsx` kit.
 Voice: **Aaron's own Professional Voice Clone** (ElevenLabs `vfUnrup2Gg0HIEnGQSnE`,
-`eleven_multilingual_v2`), generated in-session via the ElevenLabs connector — 34.64s.
+`eleven_multilingual_v2`), generated in-session via the ElevenLabs connector — 34.64s narration
+(`narration.mp3`, approved as-is) + the CTA line generated separately (`cta.mp3`), loudness-matched
+(+4.3 dB) and spliced into the pause after the payoff by `splice_cta.py` → `narration-cta.m4a`, 39.38s.
 Timing: word-exact (see `beats.json`) — ffmpeg `silencedetect` phrase windows fused with
 faster-whisper word times; the script supplies spelling ("centre").
 
@@ -30,10 +32,13 @@ The gap between the two meters *is* the chapter. Each rung's knock also gets aud
 | LADDER | 5.1–16.4s | Cover out, meters in; chain resets and relights one link per spoken word (hand 6.18 · forearm 7.70 · elbow 9.80 · shoulder 11.09 · trunk 12.27 · centre 13.48 · legs 15.12 · ground 15.84); pad fills + shakes harder each rung; effort stays at one | "Tap the pad with just the hand. Now let the forearm belong to it. Then the elbow. The shoulder. The trunk. The centre. Then let the legs own the ground." |
 | TWIST | 17.1–25.5s | Gold hand-drawn ring around the effort meter; the book's partner-start photo (Ch 17) as an archival print; **HEAVIER** stamp slams on the pad at "heavier" (22.30) with a gold burst | "To you, almost nothing changes. But to the person holding the pad, it keeps getting heavier — until it stops feeling like a hand at all." |
 | PAYOFF | 26.2–31.8s | Legs pulse on "legs", arms pulse on "arms", whole chain flares + halo on "person"; statement **The person punches.** | "The legs do not punch. The arms do not punch alone, either. The person punches." |
-| LOOP | 32.4–35.6s | Meters out, cover back, title returns line by line on "Heavier." / "Not harder." — last frame = frame 0 | "Heavier. Not harder." |
+| CTA | 32.7–36.4s | Meters out, cover back; camera moves in on the book with his lit fist pointing at it; the title **Zhan Zhuang – / Internal Power** set large on "Zhan Zhuang" (33.81); chip **Get the book · On Amazon now** on "Amazon" (35.74) | "It's all in my book, Zhan Zhuang: Internal Power. On Amazon now." |
+| LOOP | 37.2–40.4s | CTA title + chip clear; camera pulls back to the frame-0 framing; title returns line by line on "Heavier." / "Not harder." — last frame = frame 0 | "Heavier. Not harder." |
 
-No CTA outro: it ends on the payoff and dissolves into the intro. The book is credited by the
-kicker chip + cover print in the loop frame (which is also the thumbnail).
+**CTA (Aaron's call):** a purchase CTA, in his voice, placed *after the payoff and before the
+loop line*. It is not an engagement-bait outro — "Heavier. Not harder." still ends the video, so
+the last frame lands on frame 0 and the loop (and thumbnail) survive. No URL is spoken or shown:
+"On Amazon now" works on every platform without a link.
 
 ## Layers → sources
 
@@ -43,7 +48,8 @@ kicker chip + cover print in the loop frame (which is also the thumbnail).
 | `partner-start.jpg` | Book figure (Ch 17, *Put Hands On It*) — archival print, no cutout |
 | `cover.jpg` | The book's cover — archival print |
 | `paper.jpg` | Generated in-session (ElevenLabs connector, `bytedance-seedream-5-lite`), rotated to portrait |
-| `narration.mp3` | Generated in-session with Aaron's voice clone |
+| `narration.mp3`, `cta.mp3` | Generated in-session with Aaron's voice clone |
+| `narration-cta.m4a` | The two spliced by `splice_cta.py` — what the composition plays |
 | Gold chain, meters, ring, burst | SVG authored in TSX |
 | SFX | Library only (`knock-solid`, `impact-soft`, `impact-deep-soft`, `whoosh-soft`, `page-flip`, `stamp-hit`, `warm-shimmer`) |
 
@@ -55,4 +61,14 @@ figure's feet stay clear of the caption band.
 
 ## Generation cost (this video)
 
-Narration ~$0.10 · paper texture ~$0.05 · (demo brick/fighter images earlier ~$0.54, unused here).
+Narration ~$0.10 · CTA line ~$0.01 · paper texture ~$0.05 · (demo brick/fighter images earlier
+~$0.54, unused here).
+
+## Rebuild
+
+```
+python vox-shorts/vox-3-zhan-zhuang/splice_cta.py              # narration + CTA -> narration-cta.m4a
+python vox-shorts/vox-3-zhan-zhuang/align_vo.py --transcribe   # word timings -> beats.json, vo.gen.ts
+cd remotion && npm run gen && node scripts/render-all.mjs Vox3HeavierNotHarder --scale=1
+cd .. && python tools/master_audio.py remotion/out/Vox3HeavierNotHarder.mp4
+```
