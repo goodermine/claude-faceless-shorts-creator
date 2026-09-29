@@ -17,9 +17,11 @@ Remotion bundles in remotion/node_modules/@remotion/compositor-*/). Run from the
 """
 import argparse
 import glob
+import io
 import os
 import shutil
 import subprocess
+import wave
 
 import numpy as np
 import pyloudnorm as pyln
@@ -42,10 +44,24 @@ def find_ffmpeg():
     raise SystemExit("no ffmpeg found (install one, or `cd remotion && npm install`)")
 
 
+# Audio moves through pipes as 16-bit WAV: Remotion's bundled ffmpeg is a stripped build with no
+# raw-float (f32le) format, but every ffmpeg has the wav muxer/demuxer and pcm_s16le.
 def decode(ff, env, path):
-    raw = subprocess.run([ff, "-v", "error", "-i", path, "-vn", "-ac", "2", "-ar", str(SR), "-f", "f32le", "-"],
-                         check=True, capture_output=True, env=env).stdout
-    return np.frombuffer(raw, dtype=np.float32).reshape(-1, 2)
+    raw = subprocess.run([ff, "-v", "error", "-i", path, "-vn", "-ac", "2", "-ar", str(SR),
+                          "-acodec", "pcm_s16le", "-f", "wav", "-"], check=True, capture_output=True, env=env).stdout
+    pcm = raw[raw.find(b"data") + 8:]  # piped WAV has no seekable size field; take all data
+    pcm = pcm[: len(pcm) // 4 * 4]
+    return np.frombuffer(pcm, dtype=np.int16).reshape(-1, 2).astype(np.float32) / 32768.0
+
+
+def to_wav(x):
+    buf = io.BytesIO()
+    with wave.open(buf, "wb") as w:
+        w.setnchannels(2)
+        w.setsampwidth(2)
+        w.setframerate(SR)
+        w.writeframes((np.clip(x, -1.0, 1.0) * 32767.0).round().astype(np.int16).tobytes())
+    return buf.getvalue()
 
 
 def measure(x):
@@ -79,9 +95,9 @@ def main():
     x = decode(ff, env, a.video)
     l0, p0 = measure(x)
     z = master(x, a.lufs, a.ceiling)
-    subprocess.run([ff, "-v", "error", "-y", "-i", a.video, "-f", "f32le", "-ar", str(SR), "-ac", "2", "-i", "-",
+    subprocess.run([ff, "-v", "error", "-y", "-i", a.video, "-f", "wav", "-i", "-",
                     "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest", out],
-                   input=z.astype(np.float32).tobytes(), check=True, env=env)
+                   input=to_wav(z), check=True, env=env)
     l1, p1 = measure(decode(ff, env, out))
     print(f"in : {l0:6.1f} LUFS  peak {p0:6.2f} dBFS  ({os.path.relpath(a.video)})")
     print(f"out: {l1:6.1f} LUFS  peak {p1:6.2f} dBFS  ({os.path.relpath(out)}, measured after AAC encode)")

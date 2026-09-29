@@ -292,9 +292,10 @@ const Cover: React.FC<{ at: number; enter: 'none' | 'place' }> = ({ at, enter })
   <ArchivalPhoto src={asset('cover.jpg')} x={800} y={740} w={210} at={at} enter={enter} rotate={3} depth={0.07} treatment="none" z={2} />
 );
 
-// SFX — library clips on real cue frames; the rung knocks get heavier with the pad, but every
-// cue stays UNDER the voice (measured: the first mix's layered rung-7 hit peaked 3 dB above the
-// narration's own peak — rescaled so the escalation survives and the voice always leads).
+// SFX — library clips on real cue frames; the rung knocks get heavier with the pad. Measured
+// (peak, 350ms windows): rung-7 "legs own the ground" is the deliberate climax and the loudest
+// instant, ~0.6 dB over the narration's own max peak (was +3 dB before rescaling); every other
+// cue sits at or under the voice. An AUDITION — pull rung 7 down if it reads too hot by ear.
 const SFX: { at: number; id: string; v: number }[] = [
   { at: T.ladder, id: 'whoosh-soft', v: 0.3 },
   { at: T.rung[0], id: 'knock-solid', v: 0.26 },
