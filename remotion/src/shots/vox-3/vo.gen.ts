@@ -1,0 +1,569 @@
+// AUTO-GENERATED from vox-shorts/vox-3-zhan-zhuang/beats.json — do not hand-edit.
+// Real word times: silencedetect phrase windows + faster-whisper, fused (align_vo.py).
+import type { VoLine } from '../../lib/shorts';
+
+export const VO: VoLine[] = [
+  {
+    "text": "Want to hit heavier?",
+    "start": 0.0,
+    "end": 0.86,
+    "words": [
+      {
+        "w": "Want",
+        "start": 0.0,
+        "end": 0.16
+      },
+      {
+        "w": "to",
+        "start": 0.16,
+        "end": 0.26
+      },
+      {
+        "w": "hit",
+        "start": 0.26,
+        "end": 0.38
+      },
+      {
+        "w": "heavier?",
+        "start": 0.38,
+        "end": 0.58
+      }
+    ]
+  },
+  {
+    "text": "Don't swing harder.",
+    "start": 1.61,
+    "end": 2.49,
+    "words": [
+      {
+        "w": "Don't",
+        "start": 1.62,
+        "end": 1.8
+      },
+      {
+        "w": "swing",
+        "start": 1.8,
+        "end": 1.96
+      },
+      {
+        "w": "harder.",
+        "start": 1.96,
+        "end": 2.3
+      }
+    ]
+  },
+  {
+    "text": "Let more of you take part.",
+    "start": 3.16,
+    "end": 4.35,
+    "words": [
+      {
+        "w": "Let",
+        "start": 3.2,
+        "end": 3.24
+      },
+      {
+        "w": "more",
+        "start": 3.24,
+        "end": 3.4
+      },
+      {
+        "w": "of",
+        "start": 3.4,
+        "end": 3.62
+      },
+      {
+        "w": "you",
+        "start": 3.62,
+        "end": 3.72
+      },
+      {
+        "w": "take",
+        "start": 3.72,
+        "end": 3.92
+      },
+      {
+        "w": "part.",
+        "start": 3.92,
+        "end": 4.2
+      }
+    ]
+  },
+  {
+    "text": "Tap the pad with just the hand.",
+    "start": 5.09,
+    "end": 6.61,
+    "words": [
+      {
+        "w": "Tap",
+        "start": 5.14,
+        "end": 5.18
+      },
+      {
+        "w": "the",
+        "start": 5.18,
+        "end": 5.38
+      },
+      {
+        "w": "pad",
+        "start": 5.38,
+        "end": 5.56
+      },
+      {
+        "w": "with",
+        "start": 5.56,
+        "end": 5.82
+      },
+      {
+        "w": "just",
+        "start": 5.82,
+        "end": 6.0
+      },
+      {
+        "w": "the",
+        "start": 6.0,
+        "end": 6.18
+      },
+      {
+        "w": "hand.",
+        "start": 6.18,
+        "end": 6.42
+      }
+    ]
+  },
+  {
+    "text": "Now let the forearm belong to it.",
+    "start": 7.34,
+    "end": 8.84,
+    "words": [
+      {
+        "w": "Now",
+        "start": 7.34,
+        "end": 7.4
+      },
+      {
+        "w": "let",
+        "start": 7.4,
+        "end": 7.56
+      },
+      {
+        "w": "the",
+        "start": 7.56,
+        "end": 7.7
+      },
+      {
+        "w": "forearm",
+        "start": 7.7,
+        "end": 8.02
+      },
+      {
+        "w": "belong",
+        "start": 8.02,
+        "end": 8.42
+      },
+      {
+        "w": "to",
+        "start": 8.42,
+        "end": 8.68
+      },
+      {
+        "w": "it.",
+        "start": 8.68,
+        "end": 8.82
+      }
+    ]
+  },
+  {
+    "text": "Then the elbow.",
+    "start": 9.56,
+    "end": 10.34,
+    "words": [
+      {
+        "w": "Then",
+        "start": 9.56,
+        "end": 9.62
+      },
+      {
+        "w": "the",
+        "start": 9.62,
+        "end": 9.8
+      },
+      {
+        "w": "elbow.",
+        "start": 9.8,
+        "end": 10.02
+      }
+    ]
+  },
+  {
+    "text": "The shoulder.",
+    "start": 11.05,
+    "end": 11.59,
+    "words": [
+      {
+        "w": "The",
+        "start": 11.05,
+        "end": 11.09
+      },
+      {
+        "w": "shoulder.",
+        "start": 11.09,
+        "end": 11.3
+      }
+    ]
+  },
+  {
+    "text": "The trunk.",
+    "start": 12.23,
+    "end": 12.7,
+    "words": [
+      {
+        "w": "The",
+        "start": 12.23,
+        "end": 12.27
+      },
+      {
+        "w": "trunk.",
+        "start": 12.27,
+        "end": 12.48
+      }
+    ]
+  },
+  {
+    "text": "The centre.",
+    "start": 13.44,
+    "end": 13.93,
+    "words": [
+      {
+        "w": "The",
+        "start": 13.44,
+        "end": 13.48
+      },
+      {
+        "w": "centre.",
+        "start": 13.48,
+        "end": 13.72
+      }
+    ]
+  },
+  {
+    "text": "Then let the legs own the ground.",
+    "start": 14.63,
+    "end": 16.38,
+    "words": [
+      {
+        "w": "Then",
+        "start": 14.63,
+        "end": 14.72
+      },
+      {
+        "w": "let",
+        "start": 14.72,
+        "end": 14.96
+      },
+      {
+        "w": "the",
+        "start": 14.96,
+        "end": 15.12
+      },
+      {
+        "w": "legs",
+        "start": 15.12,
+        "end": 15.4
+      },
+      {
+        "w": "own",
+        "start": 15.4,
+        "end": 15.68
+      },
+      {
+        "w": "the",
+        "start": 15.68,
+        "end": 15.84
+      },
+      {
+        "w": "ground.",
+        "start": 15.84,
+        "end": 16.08
+      }
+    ]
+  },
+  {
+    "text": "To you, almost nothing changes.",
+    "start": 17.06,
+    "end": 19.45,
+    "words": [
+      {
+        "w": "To",
+        "start": 17.06,
+        "end": 17.12
+      },
+      {
+        "w": "you,",
+        "start": 17.12,
+        "end": 17.32
+      },
+      {
+        "w": "almost",
+        "start": 17.98,
+        "end": 18.28
+      },
+      {
+        "w": "nothing",
+        "start": 18.28,
+        "end": 18.74
+      },
+      {
+        "w": "changes.",
+        "start": 18.74,
+        "end": 19.0
+      }
+    ]
+  },
+  {
+    "text": "But to the person holding the pad,",
+    "start": 20.1,
+    "end": 21.52,
+    "words": [
+      {
+        "w": "But",
+        "start": 20.1,
+        "end": 20.14
+      },
+      {
+        "w": "to",
+        "start": 20.14,
+        "end": 20.24
+      },
+      {
+        "w": "the",
+        "start": 20.24,
+        "end": 20.3
+      },
+      {
+        "w": "person",
+        "start": 20.3,
+        "end": 20.58
+      },
+      {
+        "w": "holding",
+        "start": 20.58,
+        "end": 20.84
+      },
+      {
+        "w": "the",
+        "start": 20.84,
+        "end": 21.08
+      },
+      {
+        "w": "pad,",
+        "start": 21.08,
+        "end": 21.36
+      }
+    ]
+  },
+  {
+    "text": "it keeps getting heavier",
+    "start": 21.87,
+    "end": 22.89,
+    "words": [
+      {
+        "w": "it",
+        "start": 21.87,
+        "end": 21.91
+      },
+      {
+        "w": "keeps",
+        "start": 21.91,
+        "end": 22.06
+      },
+      {
+        "w": "getting",
+        "start": 22.06,
+        "end": 22.3
+      },
+      {
+        "w": "heavier",
+        "start": 22.3,
+        "end": 22.7
+      }
+    ]
+  },
+  {
+    "text": "until it stops feeling like a hand at all.",
+    "start": 23.29,
+    "end": 25.51,
+    "words": [
+      {
+        "w": "until",
+        "start": 23.29,
+        "end": 23.4
+      },
+      {
+        "w": "it",
+        "start": 23.4,
+        "end": 23.54
+      },
+      {
+        "w": "stops",
+        "start": 23.54,
+        "end": 23.74
+      },
+      {
+        "w": "feeling",
+        "start": 23.74,
+        "end": 24.14
+      },
+      {
+        "w": "like",
+        "start": 24.14,
+        "end": 24.48
+      },
+      {
+        "w": "a",
+        "start": 24.48,
+        "end": 24.62
+      },
+      {
+        "w": "hand",
+        "start": 24.62,
+        "end": 24.9
+      },
+      {
+        "w": "at",
+        "start": 24.9,
+        "end": 25.06
+      },
+      {
+        "w": "all.",
+        "start": 25.06,
+        "end": 25.26
+      }
+    ]
+  },
+  {
+    "text": "The legs do not punch.",
+    "start": 26.22,
+    "end": 27.47,
+    "words": [
+      {
+        "w": "The",
+        "start": 26.22,
+        "end": 26.26
+      },
+      {
+        "w": "legs",
+        "start": 26.26,
+        "end": 26.44
+      },
+      {
+        "w": "do",
+        "start": 26.44,
+        "end": 26.68
+      },
+      {
+        "w": "not",
+        "start": 26.68,
+        "end": 26.84
+      },
+      {
+        "w": "punch.",
+        "start": 26.84,
+        "end": 27.06
+      }
+    ]
+  },
+  {
+    "text": "The arms do not punch alone, either.",
+    "start": 28.0,
+    "end": 29.77,
+    "words": [
+      {
+        "w": "The",
+        "start": 28.0,
+        "end": 28.04
+      },
+      {
+        "w": "arms",
+        "start": 28.04,
+        "end": 28.24
+      },
+      {
+        "w": "do",
+        "start": 28.24,
+        "end": 28.5
+      },
+      {
+        "w": "not",
+        "start": 28.5,
+        "end": 28.62
+      },
+      {
+        "w": "punch",
+        "start": 28.62,
+        "end": 28.88
+      },
+      {
+        "w": "alone,",
+        "start": 28.88,
+        "end": 29.14
+      },
+      {
+        "w": "either.",
+        "start": 29.14,
+        "end": 29.58
+      }
+    ]
+  },
+  {
+    "text": "The person punches.",
+    "start": 30.55,
+    "end": 31.77,
+    "words": [
+      {
+        "w": "The",
+        "start": 30.55,
+        "end": 30.59
+      },
+      {
+        "w": "person",
+        "start": 30.59,
+        "end": 30.9
+      },
+      {
+        "w": "punches.",
+        "start": 30.9,
+        "end": 31.42
+      }
+    ]
+  },
+  {
+    "text": "Heavier.",
+    "start": 32.44,
+    "end": 32.88,
+    "words": [
+      {
+        "w": "Heavier.",
+        "start": 32.44,
+        "end": 32.7
+      }
+    ]
+  },
+  {
+    "text": "Not harder.",
+    "start": 33.56,
+    "end": 34.23,
+    "words": [
+      {
+        "w": "Not",
+        "start": 33.56,
+        "end": 33.7
+      },
+      {
+        "w": "harder.",
+        "start": 33.7,
+        "end": 34.0
+      }
+    ]
+  }
+];

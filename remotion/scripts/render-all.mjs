@@ -15,6 +15,10 @@ const args = process.argv.slice(2);
 const stillMode = args.includes('--still');
 const scaleArg = args.find((a) => a.startsWith('--scale='));
 const SCALE = scaleArg ? Number(scaleArg.split('=')[1]) : 2;
+// --concurrency=N: parallel browser tabs (default: Remotion's own). Handy on small or shared
+// machines; not needed for correctness (see the font-loading note in CLAUDE.md).
+const concArg = args.find((a) => a.startsWith('--concurrency='));
+const CONCURRENCY = concArg ? Number(concArg.split('=')[1]) : undefined;
 const onlyIds = args.filter((a) => !a.startsWith('--'));
 
 const manifest = JSON.parse(readFileSync(path.join(root, 'src', 'shots.manifest.json'), 'utf8'));
@@ -49,6 +53,7 @@ for (const shot of manifest) {
       pixelFormat: transparent ? 'yuva444p10le' : 'yuv420p',
       imageFormat: transparent ? 'png' : 'jpeg',
       crf: transparent ? undefined : 18,
+      ...(CONCURRENCY ? { concurrency: CONCURRENCY } : {}),
       onProgress: ({ progress }) => process.stdout.write(`\r  ${shot.id}: ${Math.round(progress * 100)}%   `),
     });
     process.stdout.write('\n');

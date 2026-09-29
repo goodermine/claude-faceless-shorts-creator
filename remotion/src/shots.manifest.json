@@ -118,5 +118,13 @@
   "width": 1080,
   "height": 1920,
   "transparent": false
+ },
+ {
+  "id": "Vox3HeavierNotHarder",
+  "durationInSeconds": 35.6,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "transparent": false
  }
 ]

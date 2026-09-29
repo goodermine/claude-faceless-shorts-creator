@@ -284,8 +284,11 @@ export const LabelChip: React.FC<{
   //                       for text on cream (e.g. VOX.yellow)
   depth?: number;
   z?: number;
-}> = ({ text, x, y, at = 0, size = 30, rotate = -1.5, accent, kicker, kickerColor, depth = 0.02, z }) => (
+  center?: boolean; // center the chip on x (the layer box is a generous width estimate, so
+  //                   by default the chip hugs its left edge — kept for existing shots)
+}> = ({ text, x, y, at = 0, size = 30, rotate = -1.5, accent, kicker, kickerColor, depth = 0.02, z, center = false }) => (
   <Layer x={x} y={y} w={size * text.length * 0.75 + 60} at={at} dur={10} enter="pop" rotate={rotate} depth={depth} drift={0.7} z={z}>
+    <div style={{ textAlign: center ? 'center' : undefined }}>
     <div
       style={{
         display: 'inline-block',
@@ -302,6 +305,7 @@ export const LabelChip: React.FC<{
         </div>
       ) : null}
       <div style={{ fontFamily: FONT_BODY, fontSize: size, fontWeight: 600, color: VOX.ink, margin: 0, lineHeight: 1.15 }}>{text}</div>
+    </div>
     </div>
   </Layer>
 );
